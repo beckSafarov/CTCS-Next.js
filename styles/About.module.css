@@ -1,0 +1,166 @@
+/* html,
+body {
+  height: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+} */
+
+.main {
+  flex: 1 0 auto;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  position: relative;
+}
+.section {
+  margin-top: 30px;
+  padding: 0 250px 0 250px;
+  height: 100%;
+}
+
+.section h1 {
+  text-align: left;
+}
+
+.section p {
+  font-size: 1rem;
+}
+
+.author_info {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.author_info .author_photo {
+  width: 40px;
+  height: 40px;
+  display: block;
+  background-size: cover;
+  background-image: url('../img/Zarul.jpg');
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+.author_info .info {
+  position: relative;
+  /* border: 1px solid grey; */
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  justify-content: center;
+  align-items: left;
+}
+
+.author_info .info a {
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #009999;
+  font-weight: 500px;
+}
+
+.author_info .info a:hover {
+  text-decoration: underline;
+}
+
+.author_info .info .date {
+  margin-top: 0;
+  font-size: 0.6rem;
+  color: grey;
+}
+
+.section p:nth-child(1) {
+  position: relative;
+  margin-top: 30px;
+}
+
+.centered_column {
+  margin-top: 20px;
+}
+
+.centered_column .about_photo {
+  width: 100%;
+  /* height: 500px; */
+}
+
+.centered_column p {
+  font-size: 0.7rem;
+  color: grey;
+  text-align: center;
+}
+
+.centered_column p a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.centered_column p a:hover {
+  text-decoration: underline;
+}
+
+/* projects */
+
+.centered_column .project_photo {
+  width: 700px;
+  height: 500px;
+  border-radius: 5px;
+}
+
+.projects .project {
+  margin-bottom: 50px;
+}
+
+/* TABLET RESPONSIVENESS */
+@media (max-width: 1068px) {
+  .section {
+    padding: 0 100px 0 100px;
+    text-align: justify;
+  }
+
+  .section h1 {
+    font-size: 1.5rem;
+  }
+
+  .centered_column .project_photo {
+    width: 500px;
+    height: 350px;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 500px) {
+  .section {
+    padding: 70px 40px;
+    text-align: justify;
+  }
+
+  .back-arrow {
+    display: none;
+  }
+
+  .main {
+    margin-top: 10px;
+  }
+
+  .section h1 {
+    font-size: 1.5rem;
+  }
+
+  .centered_column p {
+    font-size: 0.6rem;
+  }
+
+  .centered_column .project_photo {
+    width: 100%;
+    height: 100%;
+  }
+}
