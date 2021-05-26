@@ -1,12 +1,13 @@
-import Layout from '../components/Layout';
-import Meta from '../components/Meta';
+import Layout from '../components/globals/Layout';
+import Meta from '../components/globals/Meta';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Meta />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

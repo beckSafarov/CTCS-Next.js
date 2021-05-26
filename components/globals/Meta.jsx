@@ -15,6 +15,18 @@ const Meta = ({ title, keywords, description }) => {
         integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=='
         crossorigin='anonymous'
       />
+
+      {/* animate.css for animations */}
+      <link
+        rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'
+      />
+
+      {/* animate on scroll */}
+      <link
+        href='https://unpkg.com/aos@2.3.1/dist/aos.css'
+        rel='stylesheet'
+      ></link>
       <title>{title}</title>
     </Head>
   );

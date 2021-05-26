@@ -1,0 +1,13 @@
+const dev = process.env.NODE_ENV !== 'production';
+export const ROOT = dev ? 'http://localhost:3000' : 'http://example.com';
+export const home = ROOT + '/home';
+export const services = ROOT + '/#services';
+export const about = ROOT + '/about';
+export const contact = ROOT + '/contact';
+export const activities = ROOT + '/activities';
+export const zarul = ROOT + '/members/1';
+export const sufril = ROOT + '/members/2';
+export const adib = ROOT + '/members/3';
+export const manmeet = ROOT + '/members/4';
+export const maziani = ROOT + '/members/5';
+export const azlan = ROOT + '/members/6';
