@@ -1,10 +1,22 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import * as links from '../../config';
 import Link from 'next/link';
 
-const Navbar = () => {
+const Navbar = ({ navVisibility }) => {
+  const [page, setPage] = useState(null);
+  let currLocation = process.browser ? window.location.href : null;
+
+  const getLocation = (url) => {
+    const urlValues = url.split('/');
+    return urlValues[3] === '' ? 'home' : urlValues[3];
+  };
+
+  useEffect(() => {
+    setPage(getLocation(window.location.href));
+  }, [currLocation]);
+
   return (
-    <navbar>
+    <navbar className={navVisibility ? 'navbar' : 'navbar_hidden'}>
       <div className='logo animate__animated animate__fadeIn'>
         <Link href={links.ROOT}>
           <a href={links.ROOT}>
@@ -18,7 +30,7 @@ const Navbar = () => {
 
       <div className='menu_items'>
         <ul>
-          <li id='homeLinkItem'>
+          <li id='homeLinkItem' className={page === 'home' ? 'hidden' : ''}>
             <Link href={links.ROOT}>
               <a id='homeLink' className='hvr_grey_bg' href={links.ROOT}>
                 Home

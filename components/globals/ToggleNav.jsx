@@ -1,35 +1,24 @@
-import React from 'react';
+import { useState } from 'react';
 import * as links from '../../config';
+import Link from 'next/link';
 
 const ToggleNav = () => {
-  const toggle = document.querySelector('#toggle_icon');
-  const navigation = document.querySelector('.navigation');
+  const [sideNavOpen, setSideNavOpen] = useState(false);
+  const handleToggleClick = () => setSideNavOpen(!sideNavOpen);
 
-  const toggleClicked = () => {
-    toggle.className =
-      toggle.classList[1] === 'fa-bars'
-        ? 'fas fa-times fa-3x'
-        : 'fas fa-bars fa-3x';
-
-    navigation.classList.toggle('active');
-  };
-
-  const closeToggleMenu = () => {
-    toggle.className = 'fas fa-bars fa-3x';
-    document.querySelector('.navigation').classList.remove('active');
-  };
+  const closeToggleMenu = () => setSideNavOpen(false);
 
   return (
     <>
       <div className='toggle animate__animated animate__fadeIn'>
         <i
           id='toggle_icon'
-          className='fas fa-bars fa-3x'
-          onClick={toggleClicked}
+          className={sideNavOpen ? 'fas fa-times fa-3x' : 'fas fa-bars fa-3x'}
+          onClick={handleToggleClick}
         ></i>
       </div>
 
-      <div className='navigation'>
+      <div className={sideNavOpen ? 'navigation active' : 'navigation'}>
         <ul className='toggleNavItems'>
           <li>
             <Link href={links.ROOT} onClick={closeToggleMenu}>

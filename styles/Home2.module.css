@@ -12,12 +12,11 @@
 
 /* 1.2. Landing Section */
 
-.mobile_logo {
-  display: none;
-}
-
 .main {
+  /* flex: 1 0 auto; */
+  /* margin-bottom: -50px; */
   position: relative;
+  /* margin-top: 100px; */
 }
 
 .landing_page_section {
@@ -54,7 +53,6 @@
 .landing_page_section .body p {
   font-size: 1.5rem;
   letter-spacing: 3px;
-  color: #555;
 }
 
 .body button {
@@ -106,7 +104,7 @@
 .card {
   margin-right: 30px;
   position: relative;
-  padding: 15px 35px 15px 35px;
+  padding: 15px;
   border: 3px solid transparent;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 36px;
@@ -209,55 +207,60 @@
     flex-direction: column;
   }
 
-  .main {
-    margin-top: 100px;
-  }
-
-  /* landing page section */
-  .landing_page_section {
+  /* landing page */
+  .landing_page {
     flex-direction: column;
-    height: 100vh;
-    width: 100%;
-    padding: 15px 20px 15px 20px;
-  }
-
-  .landing_page_section .body {
-    flex: 1;
     justify-content: center;
     align-items: center;
+  }
+
+  .landing_page .body {
+    flex: 2;
+  }
+
+  .landing_page .btn_div {
+    padding-top: 20px;
+  }
+
+  .landing_page .body,
+  .landing_page .video {
     width: 100%;
   }
 
-  .landing_page_section .body h1 {
+  .landing_page .video {
+    flex: 3;
+    align-items: flex-start;
+  }
+
+  .landing_page .video iframe {
+    height: 90%;
+    width: 100%;
+  }
+
+  .landing_page .body .text {
     text-align: center;
+  }
+
+  .landing_page .body .text h1 {
     font-size: 2rem;
     letter-spacing: 3px;
   }
 
-  .landing_page_section .body p {
+  .landing_page .body .text p {
     font-size: 1rem;
-    text-align: center;
     color: grey;
   }
 
-  .landing_page_section .video {
-    flex: 2;
-    width: 100%;
-    align-items: flex-start;
+  .landing_page .btn_div {
+    text-align: center;
   }
 
-  .landing_page_section button {
-    margin-top: 20px;
+  .landing_page .btn_div button {
+    margin-top: 0;
     font-size: 0.8rem;
     border-radius: 0;
   }
 
-  .landing_page_section .iframe {
-    height: 70%;
-    width: 90%;
-  }
-
-  /* about section */
   .about-section .row .textcontent {
     margin-left: 0;
   }
@@ -296,53 +299,47 @@
     width: 60px;
   }
 
-  /* landing page section */
-  .main {
-    margin-top: 80px;
-  }
-
-  .landing_page_section {
+  .landing_page {
     flex-direction: column;
-    height: 100vh;
-    width: 100%;
-    padding: 15px;
-  }
-
-  .landing_page_section .body {
-    flex: 1;
     justify-content: center;
     align-items: center;
+    height: 100%;
     width: 100%;
+    border: 1px solid #ccc;
   }
 
-  .landing_page_section .body h1 {
-    text-align: center;
+  .landing_page .body {
+    flex: 1;
+  }
+
+  .landing_page .body .text h1 {
     font-size: 1.5rem;
-    letter-spacing: 3px;
   }
 
-  .landing_page_section .body p {
-    font-size: 1rem;
-    text-align: center;
-    color: grey;
+  .landing_page .body .text p {
+    font-size: 0.8rem;
   }
 
-  .landing_page_section .video {
-    flex: 2;
+  .landing_page .body .btn_div {
+    padding-top: 10px;
+  }
+
+  /* .landing_page .body .btn_div button {
+    border-radius: 20px;
+  } */
+
+  .landing_page .body,
+  .landing_page .video {
     width: 100%;
-    /* border: 1px solid #ccc; */
-    padding-top: 30px;
+  }
+
+  .landing_page .video {
+    flex: 1;
     align-items: flex-start;
   }
 
-  .landing_page_section button {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    border-radius: 0;
-  }
-
-  .landing_page_section .iframe {
-    height: 60%;
+  .landing_page .video iframe {
+    height: 80%;
     width: 100%;
   }
 

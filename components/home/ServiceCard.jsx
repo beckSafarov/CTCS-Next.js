@@ -1,11 +1,13 @@
 import React from 'react';
-import * as links from '../config';
+import * as links from '../../config';
 
-const ServiceCard = ({ img, serviceName, serviceDesc }) => {
+const ServiceCard = ({ img, serviceName, serviceDesc, styles }) => {
+  // data-aos='fade-up'
+  // data-aos-duration='2000'
   return (
-    <div className='serviceCard' data-aos='fade-up' data-aos-duration='2000'>
-      <div className='icon'>
-        <img src={links.ROOT + '/public/img/' + img} alt='Service Card' />
+    <div className={styles.serviceCard}>
+      <div className={styles.icon}>
+        <img src={links.ROOT + '/img/' + img} alt='Service Card' />
       </div>
       <h3>{serviceName}</h3>
       {serviceDesc}

@@ -1,10 +1,11 @@
 import React from 'react';
 
-const MemberCard = ({ memberName }) => {
+const MemberCard = ({ memberName, styles }) => {
+  // data-aos='fade-up' data-aos-duration='2000'
   return (
-    <div data-aos='fade-up' data-aos-duration='2000' className='card'>
-      <div className='card_photo'></div>
-      <div className='card_description'>
+    <div className={styles.card}>
+      <div className={styles.card_photo}></div>
+      <div className={styles.card_description}>
         <p>
           <strong>{memberName}</strong>
         </p>
