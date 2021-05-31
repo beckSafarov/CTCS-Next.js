@@ -21,18 +21,6 @@ const ToggleNav = () => {
       <div className={sideNavOpen ? 'navigation active' : 'navigation'}>
         <ul className='toggleNavItems'>
           <li>
-            <Link href={links.ROOT} onClick={closeToggleMenu}>
-              <a
-                name='home'
-                id='homeLink'
-                onClick={closeToggleMenu}
-                href={links.ROOT}
-              >
-                Home
-              </a>
-            </Link>
-          </li>
-          <li>
             <Link href={links.about}>
               <a
                 className='active_toggle_link'

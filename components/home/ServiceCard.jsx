@@ -1,13 +1,20 @@
 import React from 'react';
+import Img from 'next/image';
 import * as links from '../../config';
 
 const ServiceCard = ({ img, serviceName, serviceDesc, styles }) => {
   // data-aos='fade-up'
   // data-aos-duration='2000'
+
   return (
     <div className={styles.serviceCard}>
       <div className={styles.icon}>
-        <img src={links.ROOT + '/img/' + img} alt='Service Card' />
+        <Img
+          src={links.ROOT + '/img/' + img}
+          alt='Service Card'
+          height={60}
+          width={60}
+        ></Img>
       </div>
       <h3>{serviceName}</h3>
       {serviceDesc}

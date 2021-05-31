@@ -1,14 +1,16 @@
 import React from 'react';
 
-const MemberInfoList = ({ infoTable }) => {
+const MemberInfoList = ({ list }) => {
   return (
     <>
-      {infoTable ? (
+      {list.length > 1 ? (
         <ul>
-          {infoTable.forEach((infoLine, index) => {
+          {list.map((infoLine, index) => {
             return <li key={index}>{infoLine}</li>;
           })}
         </ul>
+      ) : list.length === 1 ? (
+        <p>{list[0]}</p>
       ) : (
         <p>-</p>
       )}

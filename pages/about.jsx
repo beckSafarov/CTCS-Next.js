@@ -3,13 +3,14 @@ import ProjectInfo from '../components/ProjectInfo';
 import styles from '../styles/About.module.css';
 import * as links from '../config';
 import Meta from '../components/globals/Meta';
+import Img from 'next/image';
 
 const dummyText =
   'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, consequuntur repellendus. Expedita, temporibus excepturi. Hic numquam optio cum possimus omnis perferendis a. Quasi, laborum? Cupiditate possimus vero eveniet pariatur provident voluptate fugit. Inventore, iusto mollitia quasi deserunt quia dignissimos, officiis cumque aperiam ipsa, natus tenetur asperiores velit magni a nihil!';
 
 const texts = [
-  'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur mollitia optio eius doloremque quos voluptatem veritatis officia est quod? Sint, voluptate fuga ex suscipit id fugiat perspiciatis illum maiores sed ipsam vel natus, repudiandae labore. Hic mollitia assumenda tempora quam?',
-  'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur mollitia optio eius doloremque quos voluptatem veritatis officia est quod? Sint, voluptate fuga ex suscipit id fugiat perspiciatis illum maiores sed ipsam vel natus, repudiandae labore. Hic mollitia assumenda tempora quam?',
+  'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, consequuntur repellendus. Expedita, temporibus excepturi. Hic numquam optio cum possimus omnis perferendis a. Quasi, laborum? Cupiditate possimus vero eveniet pariatur provident voluptate fugit. Inventore, iusto mollitia quasi deserunt quia dignissimos, officiis cumque aperiam ipsa, natus tenetur asperiores velit magni a nihil!',
+  'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, consequuntur repellendus. Expedita, temporibus excepturi. Hic numquam optio cum possimus omnis perferendis a. Quasi, laborum? Cupiditate possimus vero eveniet pariatur provident voluptate fugit. Inventore, iusto mollitia quasi deserunt quia dignissimos, officiis cumque aperiam ipsa, natus tenetur asperiores velit magni a nihil!',
 ];
 
 const projectNames = ['Project 1', 'Project 2', 'Project 3'];
@@ -45,11 +46,15 @@ const about = () => {
             <p>{dummyText}</p>
             <div className={styles.centered_column}>
               <a href={links.ROOT + '/img/ct.png'} target='_blank'>
-                <img
-                  className={styles.about_photo}
-                  src={links.ROOT + '/img/ct.png'}
-                  alt='Computational Thinking Program Aspects'
-                />
+                <div className={styles.about_photo}>
+                  <Img
+                    src={links.ROOT + '/img/ct.png'}
+                    alt='Computational Thinking Program Aspects'
+                    height={700}
+                    width={1000}
+                    wid
+                  ></Img>
+                </div>
               </a>
               <p>
                 Icons made by{' '}
@@ -79,6 +84,7 @@ const about = () => {
               );
             })}
           </div>
+          {/* <img src={images[0]} alt='Img here' width={700} height={500} /> */}
         </section>
       </main>
     </>

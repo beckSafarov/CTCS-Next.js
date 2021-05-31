@@ -9,6 +9,7 @@ import ToggleNav from '../components/globals/ToggleNav';
 import MemberCard from '../components/member/MemberCard';
 import ServiceCard from '../components/home/ServiceCard';
 import Iframe from 'react-iframe';
+import Img from 'next/image';
 
 const images = [
   '001.png',
@@ -22,10 +23,9 @@ const images = [
 const sampleDesc =
   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iure.';
 
-export default function Home() {
+export default function Home({ members }) {
   useEffect(() => {
     AOS.init();
-    // document.querySelector('#homeLinkItem').style.display = 'none';
   }, []);
 
   return (
@@ -37,7 +37,12 @@ export default function Home() {
       />
       {/* ctcs logo for mobile screens */}
       <div className={styles.mobile_logo}>
-        <img src={links.ROOT + '/img/logo_main.png'} alt='CT USM' />
+        <Img
+          src={links.ROOT + '/img/logo_main.png'}
+          alt='CT USM'
+          height={60}
+          width={60}
+        ></Img>
       </div>
 
       <main className={styles.main}>
@@ -63,13 +68,9 @@ export default function Home() {
           {/* data-aos='fade-in' data-aos-duration='2000' */}
           <h1>Team Members</h1>
           <div className={styles.cards_container}>
-            {[...Array(6).keys()].map((card, index) => {
+            {members.map((member) => {
               return (
-                <MemberCard
-                  key={index}
-                  memberName={'Member N '}
-                  styles={styles}
-                />
+                <MemberCard key={member.id} member={member} styles={styles} />
               );
             })}
           </div>
@@ -77,7 +78,7 @@ export default function Home() {
         <section className={styles.services_section}>
           <h1>Our Services</h1>
           <div className={styles.serviceCards}>
-            {[...Array(6).keys()].map((card, index) => {
+            {[...Array(6).keys()].map((service, index) => {
               return (
                 <ServiceCard
                   key={index}
@@ -93,4 +94,16 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`${links.ROOT}/api/members`);
+
+  const members = await res.json();
+
+  return {
+    props: {
+      members,
+    },
+  };
 }

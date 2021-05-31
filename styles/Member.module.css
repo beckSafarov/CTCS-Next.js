@@ -6,7 +6,7 @@
 .main {
   position: relative;
   margin-top: 100px;
-  height: 130vh;
+  height: 110vh;
 }
 
 .member_section {
@@ -18,6 +18,10 @@
 .flex_container {
   display: flex;
   flex-direction: row;
+}
+
+.flex_container .grid_container {
+  padding-top: 20px;
 }
 
 .grid_container {
@@ -51,6 +55,30 @@
   text-align: center;
 }
 
+.zarul {
+  background-image: url('../public/img/Zarul.jpg');
+}
+
+.sufril {
+  background-image: url('../public/img/Sufril.jpg');
+}
+
+.adib {
+  background-image: url('../public/img/Adib.jpg');
+}
+
+.manmeet {
+  background-image: url('../public/img/manmeet3.jpg');
+}
+
+.maziani {
+  background-image: url('../public/img/Maziani.jpg');
+}
+
+.azlan {
+  background-image: url('../public/img/Azlan.jpg');
+}
+
 /* -- MENU TAB -- */
 
 .tab {
@@ -79,7 +107,6 @@
 /* -- INFO SECTION DIVS -- */
 
 .info_section {
-  background-color: inherit;
   padding: 20px 20px 20px 30px;
 }
 
@@ -87,64 +114,40 @@
   font-size: 0.5em;
 }
 
-.info_section .label {
+.grid_container .label {
   text-align: right;
 }
 
-.info_section p {
+.grid_container p {
   padding-left: 30px;
 }
 
 /* -- CONTACT SECTION -- */
 
 .contact_section {
-  padding: 10px 20px 10px 30px;
+  padding: 20px 20px 20px 30px;
   display: flex;
   flex-direction: column;
 }
 
-.contact_section .info-box {
+.info_box {
   display: flex;
   flex-direction: row;
 }
 
-.contact_section i {
+.info_box i {
   font-size: 1em;
   margin-right: 15px;
   padding-top: 23px;
 }
 
-.contact_section a {
+.info_box a {
   color: var(--blue-color);
   text-decoration: none;
 }
 
-.contact_section a:hover {
+.info_box a:hover {
   text-decoration: underline;
-}
-
-.zarul {
-  background-image: url('../public/img/Zarul.jpg');
-}
-
-.sufril {
-  background-image: url('../public/img/Sufril.jpg');
-}
-
-.adib {
-  background-image: url('../public/img/Adib.jpg');
-}
-
-.manmeet {
-  background-image: url('../public/img/manmeet3.jpg');
-}
-
-.maziani {
-  background-image: url('../public/img/Maziani.jpg');
-}
-
-.azlan {
-  background-image: url('../public/img/Azlan.jpg');
 }
 
 /* TABLET RESPONSIVENESS */

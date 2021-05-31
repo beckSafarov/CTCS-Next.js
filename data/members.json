@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "name": "Zarul Fitri Zaaba, dr",
+    "imgShortcut": "zarul",
+    "address": "Room 15, School of Computer Sciences, Universiti Sains Malaysia, 11800 USM, Pulau Pinang",
+    "email": "zarulfitri@usm.my",
+    "call": "+604 653 4758",
+    "fax": "+604 653 3335",
+    "qualifications": [
+      "BIT Hons (IT) Universiti Utara Malaysia",
+      "MSc (Information Security) Royal Holloway University of London, United Kingdom",
+      "PhD, University of Plymouth, United Kingdom"
+    ],
+    "specializations": [
+      "Information Security",
+      "Usability Security",
+      "Data security and Privacy"
+    ],
+    "researchInterests": [
+      "Information Security",
+      "Usability Security",
+      "Human Aspects of Security",
+      "Acceptance of security"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Ahmad Sufril Azlan Mohamed, Dr.",
+    "imgShortcut": "sufril",
+    "address": "Room 520, School of Computer Sciences, Universiti Sains Malaysia, 11800 USM, Pulau Pinang",
+    "email": "sufril@usm.my",
+    "call": "+604 653 6351",
+    "fax": "+604 653 3335",
+    "qualifications": [
+      "BIT (Hons), Multimedia University, Malaysia, 2003",
+      "MSc., University of Manchester, United Kingdom, 2005",
+      "PhD., University of Salford, United Kingdom, 2015."
+    ],
+    "specializations": [
+      "Image Processing",
+      "Video Tracking",
+      "Facial Recognition",
+      "Medical Imaging"
+    ],
+    "researchInterests": [
+      "Industrial Design",
+      "Bioresource",
+      "Paper and Coatings Technology",
+      "Laser"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Mohd Adib Haji Omar, dr",
+    "imgShortcut": "adib",
+    "address": "Room 15, School of Computer Sciences, Universiti Sains Malaysia, 11800 USM, Pulau Pinang",
+    "email": "zarulfitri@usm.my",
+    "call": "+604 653 4758",
+    "fax": "+604 653 3335",
+    "qualifications": [
+      "BSc. American University, Washington DC, USA",
+      "MSc. American University, Washington DC, USA",
+      "PhD. Universiti Sains Malaysia, Malaysia"
+    ],
+    "specializations": [
+      "Information Security",
+      "Distributed Computing",
+      "Information Security"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Manmeet Kaur Mahinderjit Singh, Dr.",
+    "imgShortcut": "manmeet",
+    "address": "Room 514, School of Computer Sciences, Universiti Sains Malaysia, 11800 USM, Pulau Pinang",
+    "email": "manmeet.usm.my",
+    "call": "+604 653 5346",
+    "fax": "+604 653 3335",
+    "qualifications": [
+      "BSc (Hons) - Universiti Sains Malaysia",
+      "MSc - Distributed Computing, Universiti Sains Malaysia",
+      "PhD - Data Security, The University of Queensland, Brisbane, Australia"
+    ],
+    "specializations": [
+      "Information Security and Cybersecurity",
+      "Trusted Systems Model & Techniques",
+      "Mobile Security. Smart Devices Security ( Internet of Things)",
+      "Cybercrime Preventions & Detection"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Maziani Sabudin, Mdm.",
+    "imgShortcut": "maziani",
+    "address": "Room 632, School of Computer Sciences, Universiti Sains Malaysia, 11800 USM, Pulau Pinang",
+    "email": "maziani@usm.my",
+    "call": "+604 653 4649",
+    "fax": "+604 653 3335",
+    "qualifications": [
+      "B.Sc. Computer Science - University of Wisconsin, La Crosse, Wisconsin, U.S.A.",
+      "M.Sc. Computer Science - Bradley University, Peoria, Illinois, U.S.A."
+    ],
+    "specializations": ["Logic Programming", "Object Oriented Programming"]
+  },
+  {
+    "id": 6,
+    "name": "Azlan Osman, Mr.",
+    "imgShortcut": "azlan",
+    "address": "Room 714, School of Computer Sciences, Universiti Sains Malaysia, 11800 USM, Pulau Pinang",
+    "email": "azlanosman@usm.my",
+    "call": "+604 653 2062",
+    "fax": "+604 653 3335",
+    "researchInterests": ["Service Computing"]
+  }
+]
