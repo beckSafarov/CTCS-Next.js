@@ -1,9 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import ProjectInfo from '../components/ProjectInfo';
 import styles from '../styles/About.module.css';
 import * as links from '../config';
 import Meta from '../components/globals/Meta';
 import Img from 'next/image';
+import Loader from '../components/globals/Loader';
 
 const dummyText =
   'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, consequuntur repellendus. Expedita, temporibus excepturi. Hic numquam optio cum possimus omnis perferendis a. Quasi, laborum? Cupiditate possimus vero eveniet pariatur provident voluptate fugit. Inventore, iusto mollitia quasi deserunt quia dignissimos, officiis cumque aperiam ipsa, natus tenetur asperiores velit magni a nihil!';
@@ -28,6 +29,8 @@ const images = [
 ];
 
 const about = () => {
+  // const pageVisited = true;
+
   return (
     <>
       <Meta
@@ -37,6 +40,7 @@ const about = () => {
       />
 
       <main className={styles.main}>
+        <Loader />
         <section className={styles.section}>
           <div className={styles.about}>
             <h1 className={styles.about_title}>
@@ -52,7 +56,6 @@ const about = () => {
                     alt='Computational Thinking Program Aspects'
                     height={700}
                     width={1000}
-                    wid
                   ></Img>
                 </div>
               </a>

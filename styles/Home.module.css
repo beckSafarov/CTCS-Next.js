@@ -129,31 +129,38 @@
   display: block;
   background-size: cover;
   border-radius: 50%;
+  z-index: 10;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
 }
 
 .card:nth-child(1) .card_photo {
   background-image: url('../public/img/Zarul.jpg');
+  z-index: 10;
 }
 
 .card:nth-child(2) .card_photo {
+  z-index: 10;
   background-image: url('../public/img/Sufril.jpg');
 }
 
 .card:nth-child(3) .card_photo {
+  z-index: 10;
   background-image: url('../public/img/Adib.jpg');
 }
 
 .card:nth-child(4) .card_photo {
+  z-index: 10;
   background-image: url('../public/img/manmeet3.jpg');
 }
 
 .card:nth-child(5) .card_photo {
+  z-index: 10;
   background-image: url('../public/img/Maziani.jpg');
 }
 
 .card:nth-child(6) .card_photo {
+  z-index: 10;
   background-image: url('../public/img/Azlan.jpg');
 }
 

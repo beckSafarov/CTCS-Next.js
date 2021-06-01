@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import AOS from 'aos';
 import Link from 'next/link';
@@ -10,6 +10,7 @@ import MemberCard from '../components/member/MemberCard';
 import ServiceCard from '../components/home/ServiceCard';
 import Iframe from 'react-iframe';
 import Img from 'next/image';
+import Loader from '../components/globals/Loader';
 
 const images = [
   '001.png',
@@ -24,12 +25,20 @@ const sampleDesc =
   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iure.';
 
 export default function Home({ members }) {
+  const [loading, setLoading] = useState(false);
+  const [pageVisited, setPageVisited] = useState(true);
   useEffect(() => {
     AOS.init();
   }, []);
 
+  const runLoading = () => {
+    setLoading(true);
+  };
+
   return (
     <>
+      <Loader />
+      {loading && <Loader />}
       <Meta
         title={'CT USM'}
         keywords={'computational thinking, computer science, usm'}
@@ -47,6 +56,7 @@ export default function Home({ members }) {
 
       <main className={styles.main}>
         {/* landing section */}
+        {/* <Loader run={true} /> */}
         <section className={styles.landing_page_section}>
           <div className={styles.body}>
             <h1>Computational Thinking</h1>
@@ -70,7 +80,12 @@ export default function Home({ members }) {
           <div className={styles.cards_container}>
             {members.map((member) => {
               return (
-                <MemberCard key={member.id} member={member} styles={styles} />
+                <MemberCard
+                  key={member.id}
+                  member={member}
+                  styles={styles}
+                  handleLoading={runLoading}
+                />
               );
             })}
           </div>

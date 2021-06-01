@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MemberInfoList = ({ list }) => {
+const MemberInfoList = ({ list = [] }) => {
   return (
     <>
       {list.length > 1 ? (
