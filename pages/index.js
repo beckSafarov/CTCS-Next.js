@@ -10,28 +10,11 @@ import Iframe from 'react-iframe';
 import Img from 'next/image';
 import Loader from '../components/globals/Loader';
 
-const images = [
-  '001.png',
-  '002.png',
-  '003.png',
-  '004.png',
-  '005.png',
-  '006.png',
-];
-
-const sampleDesc =
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iure.';
-
-export default function Home({ members }) {
+export default function Home({ members, services }) {
   const [loading, setLoading] = useState(false);
-  const [pageVisited, setPageVisited] = useState(true);
-  useEffect(() => {
-    AOS.init();
-  }, []);
+  useEffect(() => AOS.init(), []);
 
-  const runLoading = () => {
-    setLoading(true);
-  };
+  const runLoading = () => setLoading(true);
 
   return (
     <>
@@ -95,9 +78,9 @@ export default function Home({ members }) {
               return (
                 <ServiceCard
                   key={index}
-                  img={images[index]}
-                  serviceName={'Service ' + index}
-                  serviceDesc={sampleDesc}
+                  img={services[index].image}
+                  serviceName={services[index].name}
+                  serviceDesc={services[index].description}
                   styles={styles}
                 />
               );
@@ -109,14 +92,17 @@ export default function Home({ members }) {
   );
 }
 
-export async function getStaticProps({ params }) {
-  const res = await fetch(`${links.ROOT}/api/members`);
+export async function getStaticProps() {
+  const membersRes = await fetch(`${links.ROOT}/api/members`);
+  const servicesRes = await fetch(`${links.ROOT}/api/services`);
 
-  const members = await res.json();
+  const members = await membersRes.json();
+  const services = await servicesRes.json();
 
   return {
     props: {
       members,
+      services,
     },
   };
 }

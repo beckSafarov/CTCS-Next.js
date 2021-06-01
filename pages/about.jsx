@@ -6,31 +6,7 @@ import Meta from '../components/globals/Meta';
 import Img from 'next/image';
 import Loader from '../components/globals/Loader';
 
-const dummyText =
-  'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, consequuntur repellendus. Expedita, temporibus excepturi. Hic numquam optio cum possimus omnis perferendis a. Quasi, laborum? Cupiditate possimus vero eveniet pariatur provident voluptate fugit. Inventore, iusto mollitia quasi deserunt quia dignissimos, officiis cumque aperiam ipsa, natus tenetur asperiores velit magni a nihil!';
-
-const texts = [
-  'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, consequuntur repellendus. Expedita, temporibus excepturi. Hic numquam optio cum possimus omnis perferendis a. Quasi, laborum? Cupiditate possimus vero eveniet pariatur provident voluptate fugit. Inventore, iusto mollitia quasi deserunt quia dignissimos, officiis cumque aperiam ipsa, natus tenetur asperiores velit magni a nihil!',
-  'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, consequuntur repellendus. Expedita, temporibus excepturi. Hic numquam optio cum possimus omnis perferendis a. Quasi, laborum? Cupiditate possimus vero eveniet pariatur provident voluptate fugit. Inventore, iusto mollitia quasi deserunt quia dignissimos, officiis cumque aperiam ipsa, natus tenetur asperiores velit magni a nihil!',
-];
-
-const projectNames = ['Project 1', 'Project 2', 'Project 3'];
-
-const descriptions = [
-  'Project 1 description',
-  'Project 2 description',
-  'Project 3 description',
-];
-
-const images = [
-  `${links.ROOT}/img/p5.jpg`,
-  `${links.ROOT}/img/p1.jpg`,
-  `${links.ROOT}/img/p2.jpg`,
-];
-
-const about = () => {
-  // const pageVisited = true;
-
+const about = ({ about, projects }) => {
   return (
     <>
       <Meta
@@ -47,12 +23,12 @@ const about = () => {
               Computational Thinking And Computer Science Teaching Certificate
               Programme{' '}
             </h1>
-            <p>{dummyText}</p>
+
             <div className={styles.centered_column}>
               <a href={links.ROOT + '/img/ct.png'} target='_blank'>
                 <div className={styles.about_photo}>
                   <Img
-                    src={links.ROOT + '/img/ct.png'}
+                    src={links.ROOT + '/img/' + about.image}
                     alt='Computational Thinking Program Aspects'
                     height={700}
                     width={1000}
@@ -70,28 +46,45 @@ const about = () => {
                 </a>
               </p>
             </div>
-            <p>{dummyText}</p>
+            {about.paragraphs.map((current) => {
+              return <p>{current}</p>;
+            })}
           </div>
+
           <div className={styles.projects}>
             <h1>Our Projects</h1>
-            {projectNames.map((card, index) => {
+            {projects.map((project) => {
               return (
                 <ProjectInfo
-                  key={index}
-                  projectName={projectNames[index]}
-                  description={descriptions[index]}
-                  texts={texts}
-                  img={images[index]}
+                  key={project.id}
+                  projectName={project.name}
+                  description={project.imgCaption}
+                  texts={project.paragraphs}
+                  img={`${links.ROOT}/img/${project.image}`}
                   styles={styles}
                 />
               );
             })}
           </div>
-          {/* <img src={images[0]} alt='Img here' width={700} height={500} /> */}
         </section>
       </main>
     </>
   );
 };
+
+export async function getStaticProps() {
+  const aboutRes = await fetch(`${links.ROOT}/api/about`);
+  const projectsRes = await fetch(`${links.ROOT}/api/about/projects`);
+
+  const about = await aboutRes.json();
+  const projects = await projectsRes.json();
+
+  return {
+    props: {
+      about,
+      projects,
+    },
+  };
+}
 
 export default about;

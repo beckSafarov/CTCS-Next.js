@@ -8,7 +8,7 @@ import Img from 'next/image';
 import Loader from '../components/globals/Loader';
 import ActivityRow from '../components/ActivityRow';
 
-const contact = () => {
+const contact = ({ contact }) => {
   return (
     <>
       <Meta
@@ -83,31 +83,26 @@ const contact = () => {
             </div>
 
             {/* contact info */}
-            <div class={styles.contact_info}>
-              <div class={styles.info_box}>
-                <i class='fas fa-map-marker-alt'></i>
-                <div class={styles.details}>
+            <div className={styles.contact_info}>
+              <div className={styles.info_box}>
+                <i className='fas fa-map-marker-alt'></i>
+                <div className={styles.details}>
                   <h4>Address</h4>
-                  <p class={styles.unspaced}>
-                    School of Computer Sciences, Universiti Sains Malaysia,
-                    11800, Pulau Pinang, Malaysia
-                  </p>
+                  <p className={styles.unspaced}>{contact.address}</p>
                 </div>
               </div>
-              <div class={styles.info_box}>
-                <i class='fas fa-envelope'></i>
-                <div class={styles.details}>
+              <div className={styles.info_box}>
+                <i className='fas fa-envelope'></i>
+                <div className={styles.details}>
                   <h4>Email</h4>
-                  <a href='mailto:usm-ct-trainers@staffusm.onmicrosoft.com'>
-                    usm-ct-trainers@staffusm.onmicrosoft.com
-                  </a>
+                  <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </div>
               </div>
-              <div class={styles.info_box}>
-                <i class='fas fa-phone-alt'></i>
-                <div class={styles.details}>
+              <div className={styles.info_box}>
+                <i className='fas fa-phone-alt'></i>
+                <div className={styles.details}>
                   <h4>Phone</h4>
-                  <p>+604-653 3647/3610</p>
+                  <p>{contact.phone}</p>
                 </div>
               </div>
             </div>
@@ -117,5 +112,17 @@ const contact = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const contactRes = await fetch(`${links.ROOT}/api/contact`);
+
+  const contact = await contactRes.json();
+
+  return {
+    props: {
+      contact,
+    },
+  };
+}
 
 export default contact;

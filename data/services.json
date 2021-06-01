@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Service 1",
+    "image": "001.png",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iure."
+  },
+  {
+    "name": "Service 2",
+    "image": "002.png",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iure."
+  },
+  {
+    "name": "Service 3",
+    "image": "003.png",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iure."
+  },
+  {
+    "name": "Service 4",
+    "image": "004.png",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iure."
+  },
+  {
+    "name": "Service 5",
+    "image": "005.png",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iure."
+  },
+  {
+    "name": "Service 6",
+    "image": "006.png",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iure."
+  }
+]

@@ -1,24 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from '../styles/Activities.module.css';
 import AOS from 'aos';
-import Link from 'next/link';
 import * as links from '../config';
 import Meta from '../components/globals/Meta';
 import Img from 'next/image';
 import Loader from '../components/globals/Loader';
 import ActivityRow from '../components/ActivityRow';
 
-const activityTitles = ['2019: Cobot 1', '2020: Cobot 2', '2021: Cobot 3'];
-const images = ['dog.jpg', 'public-speaking-1.jpg', 'public-speaking-2.jpg'];
-const captions = ['Dog Reading', 'Awesome Presentation', 'Boring Presentation'];
-
-const acitivityBodies = [
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores minima, alias harum laborum ipsum quasi nisi, quisquam esse amet reiciendis aspernatur corrupti quis odio minus dolorum! Pariatur, architecto temporibus asperiores qui, saepe earum a sed libero nam laboriosam corrupti aut odio fugiat quos porro animi quibusdam deleniti consectetur similique corporis.',
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores minima, alias harum laborum ipsum quasi nisi, quisquam esse amet reiciendis aspernatur corrupti quis odio minus dolorum! Pariatur, architecto temporibus asperiores qui, saepe earum a sed libero nam laboriosam corrupti aut odio fugiat quos porro animi quibusdam deleniti consectetur similique corporis.',
-  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores minima, alias harum laborum ipsum quasi nisi, quisquam esse amet reiciendis aspernatur corrupti quis odio minus dolorum! Pariatur, architecto temporibus asperiores qui, saepe earum a sed libero nam laboriosam corrupti aut odio fugiat quos porro animi quibusdam deleniti consectetur similique corporis.',
-];
-
-const activities = () => {
+const activities = ({ activities }) => {
   const [modal, setModal] = useState({
     display: false,
     img: null,
@@ -57,15 +46,15 @@ const activities = () => {
           <h1>Activities</h1>
           {/* activity bodies or sections */}
           <div className={styles.activity_infoboxes}>
-            {activityTitles.map((activity, index) => {
+            {activities.map((activity, index) => {
               return (
                 <ActivityRow
-                  key={index + 1}
-                  activityName={activity}
-                  image={images[index]}
-                  body={acitivityBodies[index]}
+                  key={activity.id}
+                  activityName={activity.title}
+                  image={activity.image}
+                  body={activity.body}
                   modalImgClicked={showModalImg}
-                  caption={captions[index]}
+                  caption={activity.caption}
                   styles={styles}
                 />
               );
@@ -91,5 +80,17 @@ const activities = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const activitiesRes = await fetch(`${links.ROOT}/api/activities`);
+
+  const activities = await activitiesRes.json();
+
+  return {
+    props: {
+      activities,
+    },
+  };
+}
 
 export default activities;
