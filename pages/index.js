@@ -4,8 +4,6 @@ import AOS from 'aos';
 import Link from 'next/link';
 import * as links from '../config';
 import Meta from '../components/globals/Meta';
-import Navbar from '../components/globals/Navbar';
-import ToggleNav from '../components/globals/ToggleNav';
 import MemberCard from '../components/member/MemberCard';
 import ServiceCard from '../components/home/ServiceCard';
 import Iframe from 'react-iframe';

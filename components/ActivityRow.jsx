@@ -1,39 +1,32 @@
 import React from 'react';
-import links from '../config';
+import { ROOT } from '../config';
 
 const ActivityRow = ({
-  cobotNumber,
+  activityName,
   image,
-  imgDescription,
-  yearNumber,
   body,
+  modalImgClicked,
+  caption,
+  styles,
 }) => {
-  // const cobotNumber = 0;
-  // const image = 'undefined';
-  const modalImgClicked = (image, imgDescription) => {
-    console.log(`img: ${image} and description: ${imgDescription}`);
-  };
-  return (
-    <div
-      data-aos='fade-up'
+  /**
+   * data-aos='fade-up'
       data-aos-duration='2000'
-      className='cobot'
-      id={'cobot' + cobotNumber}
-    >
-      <div className='activity_row'>
-        <h2 className='headline_over_image'>Year {yearNumber}</h2>
-        <div className='activity_img'>
+   */
+  return (
+    <div className={styles.cobot}>
+      <div className={styles.activity_row}>
+        <h2 className={styles.headline_over_image}>{activityName}</h2>
+        <div className={styles.activity_img}>
           <img
             onClick={modalImgClicked}
             className='img'
-            src={links.ROOT + '/public/img/' + image}
-            alt='Activity Image'
+            src={ROOT + '/img/' + image}
+            alt={caption}
           />
         </div>
-        <div className='activity_body'>
-          <h2 className='headline_over_body'>
-            Year {yearNumber}. Cobot {cobotNumber}
-          </h2>
+        <div className={styles.activity_body}>
+          <h2 className={styles.headline_over_body}>{activityName}</h2>
           <p>{body}</p>
         </div>
       </div>
