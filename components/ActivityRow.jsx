@@ -1,4 +1,5 @@
 import React from 'react';
+import Img from 'next/image';
 import { ROOT } from '../config';
 
 const ActivityRow = ({

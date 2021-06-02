@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
       <Navbar navVisibility={navVisibility} />
       <ToggleNav />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

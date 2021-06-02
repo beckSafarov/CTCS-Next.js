@@ -46,14 +46,14 @@ const about = ({ about, projects }) => {
                 </a>
               </p>
             </div>
-            {about.paragraphs.map((current) => {
-              return <p>{current}</p>;
+            {about.paragraphs.map((current, index) => {
+              return <p key={index}>{current}</p>;
             })}
           </div>
 
           <div className={styles.projects}>
             <h1>Our Projects</h1>
-            {projects.map((project) => {
+            {projects.map((project, index) => {
               return (
                 <ProjectInfo
                   key={project.id}

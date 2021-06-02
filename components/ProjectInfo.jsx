@@ -19,8 +19,8 @@ const ProjectInfo = ({ projectName, description, texts, img, styles }) => {
         </a>
         <p>{description}</p>
       </div>
-      {texts.map((current) => {
-        return <p>{current}</p>;
+      {texts.map((current, index) => {
+        return <p key={index}>{current}</p>;
       })}
     </div>
   );

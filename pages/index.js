@@ -37,8 +37,7 @@ export default function Home({ members, services }) {
 
       <main className={styles.main}>
         {/* landing section */}
-        {/* <Loader run={true} /> */}
-        <section className={styles.landing_page_section}>
+        <section id='landing_page' className={styles.landing_page_section}>
           <div className={styles.body}>
             <h1>Computational Thinking</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
@@ -55,7 +54,7 @@ export default function Home({ members, services }) {
             ></Iframe>
           </div>
         </section>
-        <section className={styles.team_members_section}>
+        <section id='team_members' className={styles.team_members_section}>
           {/* data-aos='fade-in' data-aos-duration='2000' */}
           <h1>Team Members</h1>
           <div className={styles.cards_container}>
@@ -71,7 +70,7 @@ export default function Home({ members, services }) {
             })}
           </div>
         </section>
-        <section className={styles.services_section}>
+        <section id='services' className={styles.services_section}>
           <h1>Our Services</h1>
           <div className={styles.serviceCards}>
             {[...Array(6).keys()].map((service, index) => {

@@ -2,22 +2,22 @@ import { useState, useEffect } from 'react';
 import * as links from '../../config';
 import Link from 'next/link';
 import Img from 'next/image';
+import { useRouter } from 'next/router';
 
 const Navbar = ({ navVisibility }) => {
-  // const [page, setPage] = useState(null);
-  // let currLocation = process.browser ? window.location.href : null;
+  const [highlight, setHighlight] = useState(null);
+  const loc = useRouter();
 
-  // const getLocation = (url) => {
-  //   const urlValues = url.split('/');
-  //   return urlValues[3] === '' ? 'home' : urlValues[3];
-  // };
+  useEffect(() => {
+    setHighlight(getLocation());
+  }, [loc.pathname]);
 
-  // useEffect(() => {
-  //   setPage(getLocation(window.location.href));
-  // }, [currLocation]);
+  const getLocation = () => {
+    return loc.pathname === '/' ? 'home' : loc.pathname.replace('/', '');
+  };
 
   return (
-    <navbar className={navVisibility ? 'navbar' : 'navbar_hidden'}>
+    <navbar className={navVisibility ? 'navbar' : 'navbar navbar_hidden'}>
       <div className='logo animate__animated animate__fadeIn'>
         <Link href={links.ROOT}>
           <a href={links.ROOT}>
@@ -35,7 +35,13 @@ const Navbar = ({ navVisibility }) => {
         <ul>
           <li>
             <Link href={links.about}>
-              <a name='about' className='hvr_grey_bg' href={links.about}>
+              <a
+                name='about'
+                className={
+                  highlight === 'about' ? 'active_navLink' : 'hvr_grey_bg'
+                }
+                href={links.about}
+              >
                 About
               </a>
             </Link>
@@ -44,7 +50,9 @@ const Navbar = ({ navVisibility }) => {
             <Link href={links.activities}>
               <a
                 name='activities'
-                className='hvr_grey_bg'
+                className={
+                  highlight === 'activities' ? 'active_navLink' : 'hvr_grey_bg'
+                }
                 href={links.activities}
               >
                 Activities
@@ -52,15 +60,14 @@ const Navbar = ({ navVisibility }) => {
             </Link>
           </li>
           <li>
-            <Link href={links.services}>
-              <a name='services' className='hvr_grey_bg' href={links.services}>
-                Services
-              </a>
-            </Link>
-          </li>
-          <li>
             <Link href={links.contact}>
-              <a name='contact' className='hvr_grey_bg' href={links.contact}>
+              <a
+                name='contact'
+                className={
+                  highlight === 'contact' ? 'active_navLink' : 'hvr_grey_bg'
+                }
+                href={links.contact}
+              >
                 Contact
               </a>
             </Link>
