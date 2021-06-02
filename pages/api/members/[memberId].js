@@ -1,7 +1,9 @@
 import fs from 'fs';
-import { DIRNAME } from '../../../config';
 const allMembers = JSON.parse(
-  fs.readFileSync(`${DIRNAME}/data/members.json`, 'utf-8')
+  fs.readFileSync(
+    `${process.env.NEXT_PUBLIC_DIRNAME}/data/members.json`,
+    'utf-8'
+  )
 );
 
 const memberHandler = (req, res) => {

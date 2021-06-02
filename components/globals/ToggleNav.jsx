@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import * as links from '../../config';
 import Link from 'next/link';
 
 const ToggleNav = () => {
@@ -21,37 +20,37 @@ const ToggleNav = () => {
       <div className={sideNavOpen ? 'navigation active' : 'navigation'}>
         <ul className='toggleNavItems'>
           <li>
-            <Link href={links.about}>
+            <Link href={`${process.env.NEXT_PUBLIC_ABOUT}`}>
               <a
                 className='active_toggle_link'
                 name='about'
                 id='aboutUsLink'
                 onClick={closeToggleMenu}
-                href={links.about}
+                href={`${process.env.NEXT_PUBLIC_ABOUT}`}
               >
                 About
               </a>
             </Link>
           </li>
           <li>
-            <Link href={links.activities}>
+            <Link href={`${process.env.NEXT_PUBLIC_ACTIVITIES}`}>
               <a
                 name='activities'
                 id='activitiesLink'
                 onClick={closeToggleMenu}
-                href={links.activities}
+                href={`${process.env.NEXT_PUBLIC_ACTIVITIES}`}
               >
                 Activities
               </a>
             </Link>
           </li>
           <li>
-            <Link href={links.contact}>
+            <Link href={`${process.env.NEXT_PUBLIC_CONTACT}`}>
               <a
                 name='contact'
                 id='contactLink'
                 onClick={closeToggleMenu}
-                href={links.contact}
+                href={`${process.env.NEXT_PUBLIC_CONTACT}`}
               >
                 Contact
               </a>

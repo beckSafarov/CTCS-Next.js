@@ -1,6 +1,4 @@
 import React from 'react';
-import * as links from '../../config';
-import Link from 'next/link';
 
 const Footer = () => {
   return (

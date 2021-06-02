@@ -1,5 +1,4 @@
 import React from 'react';
-import { ROOT } from '../../config';
 
 const TopButton = ({ active = false, onClick, link = `#landing_page` }) => {
   return (

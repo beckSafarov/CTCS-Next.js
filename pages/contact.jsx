@@ -1,12 +1,6 @@
-import { useEffect, useState } from 'react';
 import styles from '../styles/Contact.module.css';
-import AOS from 'aos';
-import Link from 'next/link';
-import * as links from '../config';
 import Meta from '../components/globals/Meta';
-import Img from 'next/image';
 import Loader from '../components/globals/Loader';
-import ActivityRow from '../components/ActivityRow';
 
 const contact = ({ contact }) => {
   return (
@@ -115,7 +109,9 @@ const contact = ({ contact }) => {
 };
 
 export async function getStaticProps() {
-  const contactRes = await fetch(`${links.ROOT}/api/contact`);
+  const contactRes = await fetch(
+    `${`${process.env.NEXT_PUBLIC_ROOT}`}/api/contact`
+  );
 
   const contact = await contactRes.json();
 

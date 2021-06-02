@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/Activities.module.css';
 import AOS from 'aos';
-import * as links from '../config';
 import Meta from '../components/globals/Meta';
-import Img from 'next/image';
 import Loader from '../components/globals/Loader';
 
 import ActivityRow from '../components/ActivityRow';
@@ -85,7 +83,9 @@ const activities = ({ activities }) => {
 };
 
 export async function getStaticProps() {
-  const activitiesRes = await fetch(`${links.ROOT}/api/activities`);
+  const activitiesRes = await fetch(
+    `${`${process.env.NEXT_PUBLIC_ROOT}`}/api/activities`
+  );
 
   const activities = await activitiesRes.json();
 

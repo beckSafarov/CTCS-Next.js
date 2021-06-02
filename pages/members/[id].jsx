@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Meta from '../../components/globals/Meta';
-import { contact, ROOT } from '../../config';
 import styles from '../../styles/Member.module.css';
 import { useRouter } from 'next/router';
 import MemberInfoList from '../../components/member/MemberInfoList';
@@ -170,7 +169,9 @@ const memberHandler = ({ member }) => {
 };
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`${ROOT}/api/members/${params.id}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_ROOT}/api/members/${params.id}`
+  );
 
   const member = await res.json();
 
@@ -182,7 +183,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths(context) {
-  const res = await fetch(`${ROOT}/api/members`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_ROOT}/api/members`);
   const members = await res.json();
 
   const ids = members.map((member) => member.id);

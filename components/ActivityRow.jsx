@@ -1,6 +1,4 @@
 import React from 'react';
-import Img from 'next/image';
-import { ROOT } from '../config';
 
 const ActivityRow = ({
   activityName,
@@ -10,10 +8,6 @@ const ActivityRow = ({
   caption,
   styles,
 }) => {
-  /**
-   * data-aos='fade-up'
-      data-aos-duration='2000'
-   */
   return (
     <div data-aos='fade-up' data-aos-duration='2000' className={styles.cobot}>
       <div className={styles.activity_row}>
@@ -22,7 +16,7 @@ const ActivityRow = ({
           <img
             onClick={modalImgClicked}
             className='img'
-            src={ROOT + '/img/' + image}
+            src={process.env.NEXT_PUBLIC_ROOT + '/img/' + image}
             alt={caption}
           />
         </div>

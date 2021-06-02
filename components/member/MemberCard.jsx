@@ -1,11 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { ROOT } from '../../config';
 import Loader from '../globals/Loader';
 
 const MemberCard = ({ member, styles, handleLoading }) => {
   // data-aos='fade-up' data-aos-duration='2000'
-  const link = `${ROOT}/members/${member.id}`;
+  const link = `${process.env.NEXT_PUBLIC_ROOT}/members/${member.id}`;
 
   return (
     <Link href={link}>

@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import ProjectInfo from '../components/ProjectInfo';
 import styles from '../styles/About.module.css';
-import * as links from '../config';
 import Meta from '../components/globals/Meta';
 import Img from 'next/image';
 import Loader from '../components/globals/Loader';
@@ -25,10 +23,15 @@ const about = ({ about, projects }) => {
             </h1>
 
             <div className={styles.centered_column}>
-              <a href={links.ROOT + '/img/ct.png'} target='_blank'>
+              <a
+                href={`${process.env.NEXT_PUBLIC_ROOT}` + '/img/ct.png'}
+                target='_blank'
+              >
                 <div className={styles.about_photo}>
                   <Img
-                    src={links.ROOT + '/img/' + about.image}
+                    src={
+                      `${process.env.NEXT_PUBLIC_ROOT}` + '/img/' + about.image
+                    }
                     alt='Computational Thinking Program Aspects'
                     height={700}
                     width={1000}
@@ -60,7 +63,9 @@ const about = ({ about, projects }) => {
                   projectName={project.name}
                   description={project.imgCaption}
                   texts={project.paragraphs}
-                  img={`${links.ROOT}/img/${project.image}`}
+                  img={`${`${process.env.NEXT_PUBLIC_ROOT}`}/img/${
+                    project.image
+                  }`}
                   styles={styles}
                 />
               );
@@ -73,8 +78,10 @@ const about = ({ about, projects }) => {
 };
 
 export async function getStaticProps() {
-  const aboutRes = await fetch(`${links.ROOT}/api/about`);
-  const projectsRes = await fetch(`${links.ROOT}/api/about/projects`);
+  const aboutRes = await fetch(`${process.env.NEXT_PUBLIC_ROOT}/api/about`);
+  const projectsRes = await fetch(
+    `${process.env.NEXT_PUBLIC_ROOT}/api/about/projects`
+  );
 
   const about = await aboutRes.json();
   const projects = await projectsRes.json();

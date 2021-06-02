@@ -1,6 +1,4 @@
 import React from 'react';
-import * as links from '../config';
-import Link from 'next/head';
 import Img from 'next/image';
 
 const ProjectInfo = ({ projectName, description, texts, img, styles }) => {

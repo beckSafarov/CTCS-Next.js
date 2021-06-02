@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import AOS from 'aos';
 import Link from 'next/link';
-import * as links from '../config';
 import Meta from '../components/globals/Meta';
 import MemberCard from '../components/member/MemberCard';
 import ServiceCard from '../components/home/ServiceCard';
@@ -15,7 +14,6 @@ export default function Home({ members, services }) {
   useEffect(() => AOS.init(), []);
 
   const runLoading = () => setLoading(true);
-
   return (
     <>
       <Loader />
@@ -28,7 +26,7 @@ export default function Home({ members, services }) {
       {/* ctcs logo for mobile screens */}
       <div className={styles.mobile_logo}>
         <Img
-          src={links.ROOT + '/img/logo_main.png'}
+          src={process.env.NEXT_PUBLIC_ROOT + '/img/logo_main.png'}
           alt='CT USM'
           height={60}
           width={60}
@@ -46,8 +44,8 @@ export default function Home({ members, services }) {
               Lorem ipsum dolor sit amet consectetur adipisicing.
             </p>
             <button className='animate__animated animate__fadeInUp'>
-              <Link href={links.ROOT + '/about'}>
-                <a href={links.ROOT + '/about'}>Learn More</a>
+              <Link href={process.env.NEXT_PUBLIC_ROOT + '/about'}>
+                <a href={process.env.NEXT_PUBLIC_ROOT + '/about'}>Learn More</a>
               </Link>
             </button>
           </div>
@@ -99,8 +97,10 @@ export default function Home({ members, services }) {
 }
 
 export async function getStaticProps() {
-  const membersRes = await fetch(`${links.ROOT}/api/members`);
-  const servicesRes = await fetch(`${links.ROOT}/api/services`);
+  const membersRes = await fetch(`${process.env.NEXT_PUBLIC_ROOT}/api/members`);
+  const servicesRes = await fetch(
+    `${process.env.NEXT_PUBLIC_ROOT}/api/services`
+  );
 
   const members = await membersRes.json();
   const services = await servicesRes.json();
