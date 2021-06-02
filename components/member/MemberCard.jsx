@@ -9,7 +9,13 @@ const MemberCard = ({ member, styles, handleLoading }) => {
 
   return (
     <Link href={link}>
-      <a className={styles.card} href={link} onClick={handleLoading}>
+      <a
+        data-aos='fade-up'
+        data-aos-duration='2000'
+        className={styles.card}
+        href={link}
+        onClick={handleLoading}
+      >
         <div className={styles.card_photo}></div>
         <div className={styles.card_description}>
           <p>

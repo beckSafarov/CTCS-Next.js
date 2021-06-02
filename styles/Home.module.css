@@ -100,6 +100,8 @@
   margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  width: 85%;
+  /* border: 1px solid #ccc; */
   gap: 50px 100px;
 }
 
@@ -124,10 +126,9 @@
 }
 
 .card .card_photo {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   display: block;
-  background-size: cover;
   border-radius: 50%;
   z-index: 10;
   -webkit-border-radius: 50%;
@@ -136,32 +137,50 @@
 
 .card:nth-child(1) .card_photo {
   background-image: url('../public/img/Zarul.jpg');
+  background-size: 190px;
+  background-position-x: -35px;
+  background-position-y: -30px;
   z-index: 10;
 }
 
 .card:nth-child(2) .card_photo {
   z-index: 10;
   background-image: url('../public/img/Sufril.jpg');
+  background-size: 240px;
+  background-position-x: -75px;
+  background-position-y: -10px;
 }
 
 .card:nth-child(3) .card_photo {
   z-index: 10;
   background-image: url('../public/img/Adib.jpg');
+  background-size: 240px;
+  background-position-x: -60px;
+  background-position-y: -55px;
 }
 
 .card:nth-child(4) .card_photo {
   z-index: 10;
   background-image: url('../public/img/manmeet3.jpg');
+  background-size: 300px;
+  background-position-x: -75px;
+  background-position-y: -115px;
 }
 
 .card:nth-child(5) .card_photo {
   z-index: 10;
   background-image: url('../public/img/Maziani.jpg');
+  background-size: 230px;
+  background-position-x: -40px;
+  background-position-y: -20px;
 }
 
 .card:nth-child(6) .card_photo {
   z-index: 10;
   background-image: url('../public/img/Azlan.jpg');
+  background-size: 220px;
+  background-position-x: -45px;
+  background-position-y: -25px;
 }
 
 .card .card_description {
@@ -203,11 +222,15 @@
 }
 
 /* SMALLER SCREEN RESPONSIVENESS */
-@media (max-width: 1250px) {
+@media (max-width: 1280px) {
   .row {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .cards_container {
+    width: 100%;
   }
 }
 
@@ -273,6 +296,8 @@
 
   .cards_container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 50px 60px;
+    width: 100%;
   }
   .team_members_section {
     height: 100%;

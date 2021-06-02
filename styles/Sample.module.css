@@ -29,3 +29,74 @@
 .main {
   background-color: red;
 }
+
+.cards_container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px 100px;
+}
+
+.card {
+  margin-right: 30px;
+  position: relative;
+  padding: 15px 10px 15px 10px;
+  border: 3px solid transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.card:hover {
+  border: 3px solid #2098d1;
+}
+
+.card .card_photo {
+  width: 150px;
+  height: 150px;
+  display: block;
+  /* background-size: cover; */
+  background-size: 310px;
+  background-position-x: -90px;
+  background-position-y: -70px;
+  border-radius: 50%;
+  z-index: 10;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+.card:nth-child(1) .card_photo {
+  background-image: url('../public/img/Zarul.jpg');
+  z-index: 10;
+}
+
+.card:nth-child(2) .card_photo {
+  z-index: 10;
+  background-image: url('../public/img/Sufril.jpg');
+}
+
+.card:nth-child(3) .card_photo {
+  z-index: 10;
+  background-image: url('../public/img/Adib.jpg');
+}
+
+.card:nth-child(4) .card_photo {
+  z-index: 10;
+  background-image: url('../public/img/manmeet3.jpg');
+}
+
+.card:nth-child(5) .card_photo {
+  z-index: 10;
+  background-image: url('../public/img/Maziani.jpg');
+}
+
+.card:nth-child(6) .card_photo {
+  z-index: 10;
+  background-image: url('../public/img/Azlan.jpg');
+}

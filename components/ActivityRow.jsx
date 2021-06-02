@@ -15,7 +15,7 @@ const ActivityRow = ({
       data-aos-duration='2000'
    */
   return (
-    <div className={styles.cobot}>
+    <div data-aos='fade-up' data-aos-duration='2000' className={styles.cobot}>
       <div className={styles.activity_row}>
         <h2 className={styles.headline_over_image}>{activityName}</h2>
         <div className={styles.activity_img}>

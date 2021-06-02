@@ -18,6 +18,7 @@ const contact = ({ contact }) => {
         }
         description={'Contact with USM Computational Thinking Team'}
       />
+      <Loader />
       <main className={styles.main}>
         <section className={styles.contact_section}>
           <div className='text_center'>

@@ -1,16 +1,11 @@
 import React from 'react';
 import { ROOT } from '../../config';
 
-const Loader = ({ run = true }) => {
+const Loader = () => {
   return (
-    // <div className='loader-container'>
-    //   <img src={`${ROOT}/img/loading.gif`} />
-    // </div>
-    run && (
-      <div className='progress_container'>
-        <div className='progress_bar'> </div>
-      </div>
-    )
+    <div className='progress_container'>
+      <div className='progress_bar'> </div>
+    </div>
   );
 };
 

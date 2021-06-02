@@ -293,6 +293,41 @@ h1 {
   color: var(--blue-color);
 }
 
+/* go to top */
+.go_to_top {
+  position: fixed;
+  color: #000;
+  bottom: 30px;
+  right: -50px;
+  z-index: 15;
+  transition: 0.3s;
+}
+
+.go_to_top a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.go_to_top i {
+  font-size: 40px;
+}
+
+.go_to_top.active {
+  right: 40px;
+}
+
+.go_to_top:hover {
+  color: var(--awesome-blue);
+}
+
+.something {
+  color: black;
+}
+
+.something.active {
+  color: green;
+}
+
 /* -- REGULAR NAVBAR -- */
 .navbar {
   position: fixed;

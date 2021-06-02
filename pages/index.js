@@ -39,15 +39,19 @@ export default function Home({ members, services }) {
         {/* landing section */}
         <section id='landing_page' className={styles.landing_page_section}>
           <div className={styles.body}>
-            <h1>Computational Thinking</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-            <button>
+            <h1 className='animate__animated animate__fadeInDown'>
+              Computational Thinking
+            </h1>
+            <p className='animate__animated animate__fadeInLeft'>
+              Lorem ipsum dolor sit amet consectetur adipisicing.
+            </p>
+            <button className='animate__animated animate__fadeInUp'>
               <Link href={links.ROOT + '/about'}>
                 <a href={links.ROOT + '/about'}>Learn More</a>
               </Link>
             </button>
           </div>
-          <div className={styles.video}>
+          <div className={styles.video + ' animate__animated animate__zoomIn'}>
             <Iframe
               url='https://www.youtube.com/embed/klXzntaBZ3c'
               className={styles.iframe}
@@ -55,8 +59,9 @@ export default function Home({ members, services }) {
           </div>
         </section>
         <section id='team_members' className={styles.team_members_section}>
-          {/* data-aos='fade-in' data-aos-duration='2000' */}
-          <h1>Team Members</h1>
+          <h1 data-aos='fade-in' data-aos-duration='2000'>
+            Team Members
+          </h1>
           <div className={styles.cards_container}>
             {members.map((member) => {
               return (
@@ -71,7 +76,9 @@ export default function Home({ members, services }) {
           </div>
         </section>
         <section id='services' className={styles.services_section}>
-          <h1>Our Services</h1>
+          <h1 data-aos='fade-up' data-aos-duration='2000'>
+            Our Services
+          </h1>
           <div className={styles.serviceCards}>
             {[...Array(6).keys()].map((service, index) => {
               return (

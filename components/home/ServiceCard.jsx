@@ -3,11 +3,12 @@ import Img from 'next/image';
 import * as links from '../../config';
 
 const ServiceCard = ({ img, serviceName, serviceDesc, styles }) => {
-  // data-aos='fade-up'
-  // data-aos-duration='2000'
-
   return (
-    <div className={styles.serviceCard}>
+    <div
+      data-aos='fade-up'
+      data-aos-duration='2000'
+      className={styles.serviceCard}
+    >
       <div className={styles.icon}>
         <Img
           src={links.ROOT + '/img/' + img}

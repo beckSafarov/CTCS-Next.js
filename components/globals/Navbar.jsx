@@ -2,22 +2,21 @@ import { useState, useEffect } from 'react';
 import * as links from '../../config';
 import Link from 'next/link';
 import Img from 'next/image';
-import { useRouter } from 'next/router';
+import Loader from './Loader';
 
-const Navbar = ({ navVisibility }) => {
+const Navbar = ({ navVisibility, loc }) => {
   const [highlight, setHighlight] = useState(null);
-  const loc = useRouter();
 
   useEffect(() => {
     setHighlight(getLocation());
-  }, [loc.pathname]);
+  }, [loc]);
 
   const getLocation = () => {
     return loc.pathname === '/' ? 'home' : loc.pathname.replace('/', '');
   };
 
   return (
-    <navbar className={navVisibility ? 'navbar' : 'navbar navbar_hidden'}>
+    <div className={navVisibility ? 'navbar' : 'navbar navbar_hidden'}>
       <div className='logo animate__animated animate__fadeIn'>
         <Link href={links.ROOT}>
           <a href={links.ROOT}>
@@ -74,7 +73,7 @@ const Navbar = ({ navVisibility }) => {
           </li>
         </ul>
       </div>
-    </navbar>
+    </div>
   );
 };
 

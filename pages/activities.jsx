@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../styles/Activities.module.css';
 import AOS from 'aos';
 import * as links from '../config';
 import Meta from '../components/globals/Meta';
 import Img from 'next/image';
 import Loader from '../components/globals/Loader';
+
 import ActivityRow from '../components/ActivityRow';
 
 const activities = ({ activities }) => {
@@ -13,6 +14,8 @@ const activities = ({ activities }) => {
     img: null,
     caption: null,
   });
+
+  useEffect(() => AOS.init(), []);
 
   const showModalImg = (e) => {
     setModal({

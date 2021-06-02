@@ -3,8 +3,10 @@ import Footer from './Footer';
 import Meta from './Meta';
 import Navbar from './Navbar';
 import ToggleNav from './ToggleNav';
+import { useRouter } from 'next/router';
 
 const Layout = ({ children }) => {
+  const loc = useRouter();
   const [prevScrollpos, setPrevScrollpos] = useState(null);
   const [navVisibility, setNavVisibility] = useState(true);
 
@@ -20,12 +22,12 @@ const Layout = ({ children }) => {
     window.addEventListener('scroll', navVisibilityHandler);
 
     return () => window.removeEventListener('scroll', navVisibilityHandler);
-  }, [prevScrollpos]);
+  }, [prevScrollpos, loc.pathname]);
 
   return (
     <>
       <Meta />
-      <Navbar navVisibility={navVisibility} />
+      <Navbar navVisibility={navVisibility} loc={loc} />
       <ToggleNav />
       {children}
       <Footer />
