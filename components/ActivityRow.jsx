@@ -1,4 +1,5 @@
 import React from 'react';
+import { ROOT } from '../config';
 
 const ActivityRow = ({
   activityName,
@@ -16,7 +17,7 @@ const ActivityRow = ({
           <img
             onClick={modalImgClicked}
             className='img'
-            src={process.env.NEXT_PUBLIC_ROOT + '/img/' + image}
+            src={ROOT + '/img/' + image}
             alt={caption}
           />
         </div>

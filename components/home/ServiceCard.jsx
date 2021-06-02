@@ -1,5 +1,6 @@
 import React from 'react';
 import Img from 'next/image';
+import { ROOT } from '../../config';
 
 const ServiceCard = ({ img, serviceName, serviceDesc, styles }) => {
   return (
@@ -10,7 +11,7 @@ const ServiceCard = ({ img, serviceName, serviceDesc, styles }) => {
     >
       <div className={styles.icon}>
         <Img
-          src={`${process.env.NEXT_PUBLIC_ROOT}` + '/img/' + img}
+          src={`${ROOT}` + '/img/' + img}
           alt='Service Card'
           height={60}
           width={60}

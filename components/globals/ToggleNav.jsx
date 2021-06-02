@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { ROOT, ABOUT, ACTIVITIES, CONTACT } from '../../config';
 
 const ToggleNav = () => {
   const [sideNavOpen, setSideNavOpen] = useState(false);

@@ -8,6 +8,7 @@ import ServiceCard from '../components/home/ServiceCard';
 import Iframe from 'react-iframe';
 import Img from 'next/image';
 import Loader from '../components/globals/Loader';
+import { ROOT } from '../config';
 
 export default function Home({ members, services }) {
   const [loading, setLoading] = useState(false);
@@ -26,7 +27,7 @@ export default function Home({ members, services }) {
       {/* ctcs logo for mobile screens */}
       <div className={styles.mobile_logo}>
         <Img
-          src={process.env.NEXT_PUBLIC_ROOT + '/img/logo_main.png'}
+          src={ROOT + '/img/logo_main.png'}
           alt='CT USM'
           height={60}
           width={60}
@@ -44,8 +45,8 @@ export default function Home({ members, services }) {
               Lorem ipsum dolor sit amet consectetur adipisicing.
             </p>
             <button className='animate__animated animate__fadeInUp'>
-              <Link href={process.env.NEXT_PUBLIC_ROOT + '/about'}>
-                <a href={process.env.NEXT_PUBLIC_ROOT + '/about'}>Learn More</a>
+              <Link href={ROOT + '/about'}>
+                <a href={ROOT + '/about'}>Learn More</a>
               </Link>
             </button>
           </div>
@@ -97,10 +98,8 @@ export default function Home({ members, services }) {
 }
 
 export async function getStaticProps() {
-  const membersRes = await fetch(`${process.env.NEXT_PUBLIC_ROOT}/api/members`);
-  const servicesRes = await fetch(
-    `${process.env.NEXT_PUBLIC_ROOT}/api/services`
-  );
+  const membersRes = await fetch(`${ROOT}/api/members`);
+  const servicesRes = await fetch(`${ROOT}/api/services`);
 
   const members = await membersRes.json();
   const services = await servicesRes.json();

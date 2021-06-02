@@ -1,4 +1,5 @@
 import React from 'react';
+import { ROOT } from '../../config';
 
 const Footer = () => {
   return (

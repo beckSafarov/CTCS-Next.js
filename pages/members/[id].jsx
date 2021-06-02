@@ -3,11 +3,11 @@ import Meta from '../../components/globals/Meta';
 import styles from '../../styles/Member.module.css';
 import { useRouter } from 'next/router';
 import MemberInfoList from '../../components/member/MemberInfoList';
+import { ROOT } from '../../config';
 
 const memberHandler = ({ member }) => {
   const nameList = member.name.split(' ');
-  let shortName = `${nameList[0]} ${nameList[1]}`;
-  shortName = shortName.replace(',', '');
+  let shortName = nameList[0].concat(nameList[1]).replace(',', '');
   const id = useRouter().query.id;
   const [photoClass, setPhotoClass] = useState(null);
   const [infoSectionVisibility, setInfoSectionVisibility] = useState(true);
@@ -169,9 +169,8 @@ const memberHandler = ({ member }) => {
 };
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_ROOT}/api/members/${params.id}`
-  );
+  console.log(ROOT);
+  const res = await fetch(`${ROOT}/api/members/${params.id}`);
 
   const member = await res.json();
 
@@ -183,7 +182,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths(context) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_ROOT}/api/members`);
+  const res = await fetch(`${ROOT}/api/members`);
   const members = await res.json();
 
   const ids = members.map((member) => member.id);

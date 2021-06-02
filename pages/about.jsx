@@ -3,6 +3,7 @@ import styles from '../styles/About.module.css';
 import Meta from '../components/globals/Meta';
 import Img from 'next/image';
 import Loader from '../components/globals/Loader';
+import { ROOT } from '../config';
 
 const about = ({ about, projects }) => {
   return (
@@ -23,15 +24,10 @@ const about = ({ about, projects }) => {
             </h1>
 
             <div className={styles.centered_column}>
-              <a
-                href={`${process.env.NEXT_PUBLIC_ROOT}` + '/img/ct.png'}
-                target='_blank'
-              >
+              <a href={`${ROOT}/img/ct.png`} target='_blank'>
                 <div className={styles.about_photo}>
                   <Img
-                    src={
-                      `${process.env.NEXT_PUBLIC_ROOT}` + '/img/' + about.image
-                    }
+                    src={`${ROOT}/img/${about.image}`}
                     alt='Computational Thinking Program Aspects'
                     height={700}
                     width={1000}
@@ -56,16 +52,14 @@ const about = ({ about, projects }) => {
 
           <div className={styles.projects}>
             <h1>Our Projects</h1>
-            {projects.map((project, index) => {
+            {projects.map((project) => {
               return (
                 <ProjectInfo
                   key={project.id}
                   projectName={project.name}
                   description={project.imgCaption}
                   texts={project.paragraphs}
-                  img={`${`${process.env.NEXT_PUBLIC_ROOT}`}/img/${
-                    project.image
-                  }`}
+                  img={`${`${ROOT}`}/img/${project.image}`}
                   styles={styles}
                 />
               );
@@ -78,10 +72,8 @@ const about = ({ about, projects }) => {
 };
 
 export async function getStaticProps() {
-  const aboutRes = await fetch(`${process.env.NEXT_PUBLIC_ROOT}/api/about`);
-  const projectsRes = await fetch(
-    `${process.env.NEXT_PUBLIC_ROOT}/api/about/projects`
-  );
+  const aboutRes = await fetch(`${ROOT}/api/about`);
+  const projectsRes = await fetch(`${ROOT}/api/about/projects`);
 
   const about = await aboutRes.json();
   const projects = await projectsRes.json();

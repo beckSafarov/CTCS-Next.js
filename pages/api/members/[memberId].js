@@ -1,9 +1,9 @@
 import fs from 'fs';
+const dirname = fs
+  .realpathSync('./next.config.js')
+  .replace('/next.config.js', '');
 const allMembers = JSON.parse(
-  fs.readFileSync(
-    `${process.env.NEXT_PUBLIC_DIRNAME}/data/members.json`,
-    'utf-8'
-  )
+  fs.readFileSync(`${dirname}/data/members.json`, 'utf-8')
 );
 
 const memberHandler = (req, res) => {

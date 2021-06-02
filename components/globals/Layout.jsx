@@ -4,6 +4,7 @@ import Meta from './Meta';
 import Navbar from './Navbar';
 import ToggleNav from './ToggleNav';
 import { useRouter } from 'next/router';
+import { ROOT } from '../../config';
 
 const Layout = ({ children }) => {
   const loc = useRouter();

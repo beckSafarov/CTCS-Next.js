@@ -3,6 +3,7 @@ import styles from '../styles/Activities.module.css';
 import AOS from 'aos';
 import Meta from '../components/globals/Meta';
 import Loader from '../components/globals/Loader';
+import { ROOT } from '../config';
 
 import ActivityRow from '../components/ActivityRow';
 
@@ -83,9 +84,7 @@ const activities = ({ activities }) => {
 };
 
 export async function getStaticProps() {
-  const activitiesRes = await fetch(
-    `${`${process.env.NEXT_PUBLIC_ROOT}`}/api/activities`
-  );
+  const activitiesRes = await fetch(`${ROOT}/api/activities`);
 
   const activities = await activitiesRes.json();
 

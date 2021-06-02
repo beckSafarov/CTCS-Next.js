@@ -1,6 +1,7 @@
 import styles from '../styles/Contact.module.css';
 import Meta from '../components/globals/Meta';
 import Loader from '../components/globals/Loader';
+import { ROOT } from '../config';
 
 const contact = ({ contact }) => {
   return (
@@ -109,9 +110,7 @@ const contact = ({ contact }) => {
 };
 
 export async function getStaticProps() {
-  const contactRes = await fetch(
-    `${`${process.env.NEXT_PUBLIC_ROOT}`}/api/contact`
-  );
+  const contactRes = await fetch(`${ROOT}/api/contact`);
 
   const contact = await contactRes.json();
 
