@@ -4,7 +4,7 @@ import AOS from 'aos';
 import Meta from '../components/globals/Meta';
 import Loader from '../components/globals/Loader';
 import { ROOT } from '../config';
-
+import fs from 'fs';
 import ActivityRow from '../components/ActivityRow';
 
 const activities = ({ activities }) => {
@@ -84,9 +84,13 @@ const activities = ({ activities }) => {
 };
 
 export async function getStaticProps() {
-  const activitiesRes = await fetch(`${ROOT}/api/activities`);
+  const dirname = fs
+    .realpathSync('./next.config.js')
+    .replace('/next.config.js', '');
 
-  const activities = await activitiesRes.json();
+  const activities = JSON.parse(
+    fs.readFileSync(`${dirname}/data/activities.json`, 'utf-8')
+  );
 
   return {
     props: {

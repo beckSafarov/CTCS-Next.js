@@ -2,6 +2,7 @@ import styles from '../styles/Contact.module.css';
 import Meta from '../components/globals/Meta';
 import Loader from '../components/globals/Loader';
 import { ROOT } from '../config';
+import fs from 'fs';
 
 const contact = ({ contact }) => {
   return (
@@ -110,9 +111,13 @@ const contact = ({ contact }) => {
 };
 
 export async function getStaticProps() {
-  const contactRes = await fetch(`${ROOT}/api/contact`);
+  const dirname = fs
+    .realpathSync('./next.config.js')
+    .replace('/next.config.js', '');
 
-  const contact = await contactRes.json();
+  const contact = JSON.parse(
+    fs.readFileSync(`${dirname}/data/contact.json`, 'utf-8')
+  );
 
   return {
     props: {

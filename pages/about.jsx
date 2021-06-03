@@ -4,6 +4,7 @@ import Meta from '../components/globals/Meta';
 import Img from 'next/image';
 import Loader from '../components/globals/Loader';
 import { ROOT } from '../config';
+import fs from 'fs';
 
 const about = ({ about, projects }) => {
   return (
@@ -72,11 +73,17 @@ const about = ({ about, projects }) => {
 };
 
 export async function getStaticProps() {
-  const aboutRes = await fetch(`${ROOT}/api/about`);
-  const projectsRes = await fetch(`${ROOT}/api/about/projects`);
+  const dirname = fs
+    .realpathSync('./next.config.js')
+    .replace('/next.config.js', '');
 
-  const about = await aboutRes.json();
-  const projects = await projectsRes.json();
+  const about = JSON.parse(
+    fs.readFileSync(`${dirname}/data/about.json`, 'utf-8')
+  );
+
+  const projects = JSON.parse(
+    fs.readFileSync(`${dirname}/data/projects.json`, 'utf-8')
+  );
 
   return {
     props: {

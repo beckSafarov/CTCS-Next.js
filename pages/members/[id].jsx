@@ -4,6 +4,10 @@ import styles from '../../styles/Member.module.css';
 import { useRouter } from 'next/router';
 import MemberInfoList from '../../components/member/MemberInfoList';
 import { ROOT } from '../../config';
+import fs from 'fs';
+const dirname = fs
+  .realpathSync('./next.config.js')
+  .replace('/next.config.js', '');
 
 const memberHandler = ({ member }) => {
   const nameList = member.name.split(' ');
@@ -169,10 +173,11 @@ const memberHandler = ({ member }) => {
 };
 
 export async function getStaticProps({ params }) {
-  console.log(ROOT);
-  const res = await fetch(`${ROOT}/api/members/${params.id}`);
+  const members = JSON.parse(
+    fs.readFileSync(`${dirname}/data/members.json`, 'utf-8')
+  );
 
-  const member = await res.json();
+  const member = members.find((curr) => curr.id == params.id);
 
   return {
     props: {
@@ -182,8 +187,9 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths(context) {
-  const res = await fetch(`${ROOT}/api/members`);
-  const members = await res.json();
+  const members = JSON.parse(
+    fs.readFileSync(`${dirname}/data/members.json`, 'utf-8')
+  );
 
   const ids = members.map((member) => member.id);
   const paths = ids.map((id) => ({

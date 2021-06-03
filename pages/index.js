@@ -9,6 +9,7 @@ import Iframe from 'react-iframe';
 import Img from 'next/image';
 import Loader from '../components/globals/Loader';
 import { ROOT } from '../config';
+import fs from 'fs';
 
 export default function Home({ members, services }) {
   const [loading, setLoading] = useState(false);
@@ -44,7 +45,7 @@ export default function Home({ members, services }) {
             <p className='animate__animated animate__fadeInLeft'>
               Lorem ipsum dolor sit amet consectetur adipisicing.
             </p>
-            <button className='animate__animated animate__fadeInUp'>
+            <button className='animate__animated animate__fadeInUp hvr_float_shadow'>
               <Link href={ROOT + '/about'}>
                 <a href={ROOT + '/about'}>Learn More</a>
               </Link>
@@ -98,11 +99,16 @@ export default function Home({ members, services }) {
 }
 
 export async function getStaticProps() {
-  const membersRes = await fetch(`${ROOT}/api/members`);
-  const servicesRes = await fetch(`${ROOT}/api/services`);
+  const dirname = fs
+    .realpathSync('./next.config.js')
+    .replace('/next.config.js', '');
 
-  const members = await membersRes.json();
-  const services = await servicesRes.json();
+  const members = JSON.parse(
+    fs.readFileSync(`${dirname}/data/members.json`, 'utf-8')
+  );
+  const services = JSON.parse(
+    fs.readFileSync(`${dirname}/data/services.json`, 'utf-8')
+  );
 
   return {
     props: {
