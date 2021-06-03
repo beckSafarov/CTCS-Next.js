@@ -6,7 +6,6 @@ import Meta from '../components/globals/Meta';
 import MemberCard from '../components/member/MemberCard';
 import ServiceCard from '../components/home/ServiceCard';
 import Iframe from 'react-iframe';
-import Img from 'next/image';
 import Loader from '../components/globals/Loader';
 import { ROOT } from '../config';
 import fs from 'fs';
@@ -27,12 +26,7 @@ export default function Home({ members, services }) {
       />
       {/* ctcs logo for mobile screens */}
       <div className={styles.mobile_logo}>
-        <Img
-          src={ROOT + '/img/logo_main.png'}
-          alt='CT USM'
-          height={60}
-          width={60}
-        ></Img>
+        <img src={`${ROOT}/img/logo_main.png`} alt='Logo' />
       </div>
 
       <main className={styles.main}>

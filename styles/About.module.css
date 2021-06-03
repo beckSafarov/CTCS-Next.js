@@ -40,6 +40,14 @@ body {
 
 .centered_column .about_photo {
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.about_photo img {
+  border: 1px solid var(--greyish-color);
+  border-radius: 10px;
+  width: 80%;
 }
 
 .centered_column p {
@@ -61,6 +69,8 @@ body {
 
 .centered_column .project_photo {
   border-radius: 5px;
+  width: 700px;
+  height: 500px;
 }
 
 .projects .project {
@@ -76,6 +86,11 @@ body {
 
   .section h1 {
     font-size: 1.5rem;
+  }
+
+  .centered_column .about_photo img {
+    width: 100%;
+    border: none;
   }
 
   .centered_column .project_photo {
@@ -109,6 +124,11 @@ body {
 
   .centered_column p {
     font-size: 0.6rem;
+  }
+
+  .centered_column .about_photo img {
+    width: 100%;
+    border: none;
   }
 
   .centered_column .project_photo {

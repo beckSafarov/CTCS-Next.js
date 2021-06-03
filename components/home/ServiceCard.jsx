@@ -1,5 +1,4 @@
 import React from 'react';
-import Img from 'next/image';
 import { ROOT } from '../../config';
 
 const ServiceCard = ({ img, serviceName, serviceDesc, styles }) => {
@@ -10,12 +9,7 @@ const ServiceCard = ({ img, serviceName, serviceDesc, styles }) => {
       className={styles.serviceCard}
     >
       <div className={styles.icon}>
-        <Img
-          src={`${ROOT}` + '/img/' + img}
-          alt='Service Card'
-          height={60}
-          width={60}
-        ></Img>
+        <img src={`${ROOT}/img/${img}`} alt='Service Card' />
       </div>
       <h3>{serviceName}</h3>
       {serviceDesc}

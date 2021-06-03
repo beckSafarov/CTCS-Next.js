@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Img from 'next/image';
 import { ROOT, ABOUT, ACTIVITIES, CONTACT } from '../../config';
 
 const Navbar = ({ navVisibility, loc }) => {
@@ -19,12 +18,7 @@ const Navbar = ({ navVisibility, loc }) => {
       <div className='logo animate__animated animate__fadeIn'>
         <Link href={`${ROOT}`}>
           <a href={`${ROOT}`}>
-            <Img
-              src={`${ROOT}` + '/img/logo_main.png'}
-              alt='Computational Thinking'
-              width={80}
-              height={80}
-            ></Img>
+            <img src={`${ROOT}/img/logo_main.png`} alt='Logo' />
           </a>
         </Link>
       </div>

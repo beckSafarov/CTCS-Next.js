@@ -1,7 +1,6 @@
 import ProjectInfo from '../components/ProjectInfo';
 import styles from '../styles/About.module.css';
 import Meta from '../components/globals/Meta';
-import Img from 'next/image';
 import Loader from '../components/globals/Loader';
 import { ROOT } from '../config';
 import fs from 'fs';
@@ -27,12 +26,10 @@ const about = ({ about, projects }) => {
             <div className={styles.centered_column}>
               <a href={`${ROOT}/img/ct.png`} target='_blank'>
                 <div className={styles.about_photo}>
-                  <Img
+                  <img
                     src={`${ROOT}/img/${about.image}`}
                     alt='Computational Thinking Program Aspects'
-                    height={700}
-                    width={1000}
-                  ></Img>
+                  />
                 </div>
               </a>
               <p>
