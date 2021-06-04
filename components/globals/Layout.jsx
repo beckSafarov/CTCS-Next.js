@@ -3,13 +3,13 @@ import Footer from './Footer';
 import Meta from './Meta';
 import Navbar from './Navbar';
 import ToggleNav from './ToggleNav';
-import { useRouter } from 'next/router';
-import { ROOT } from '../../config';
 
 const Layout = ({ children }) => {
-  const loc = useRouter();
   const [prevScrollpos, setPrevScrollpos] = useState(null);
   const [navVisibility, setNavVisibility] = useState(true);
+  const [minimalNav, setMinimalNav] = useState(false);
+
+  let sideEffects = process.browser ? [window.pageYOffset] : [];
 
   const navVisibilityHandler = () => {
     let currentScrollPos = window.pageYOffset;
@@ -17,18 +17,22 @@ const Layout = ({ children }) => {
     setPrevScrollpos(currentScrollPos);
   };
 
+  const navMinimizeHandler = () => {
+    window.pageYOffset >= 100 ? setMinimalNav(true) : setMinimalNav(false);
+  };
+
   useEffect(() => {
-    setPrevScrollpos(window.pageYOffset);
+    // setPrevScrollpos(window.pageYOffset);
 
-    window.addEventListener('scroll', navVisibilityHandler);
+    window.addEventListener('scroll', navMinimizeHandler);
 
-    return () => window.removeEventListener('scroll', navVisibilityHandler);
-  }, [prevScrollpos, loc.pathname]);
+    return () => window.removeEventListener('scroll', navMinimizeHandler);
+  }, [...sideEffects]);
 
   return (
     <>
       <Meta />
-      <Navbar navVisibility={navVisibility} loc={loc} />
+      <Navbar minimalNav={minimalNav} />
       <ToggleNav />
       {children}
       <Footer />

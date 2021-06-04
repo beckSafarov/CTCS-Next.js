@@ -88,7 +88,7 @@
 
 /* -- 3. TEAM MEMBERS -- */
 .team_members_section {
-  height: 120vh;
+  height: 110vh;
   padding-bottom: 100px;
   /* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
   background-color: #f2f2f2;
@@ -190,7 +190,7 @@
 
 /* SERVICES SECTION */
 .services_section {
-  height: 120vh;
+  height: 110vh;
   background-image: linear-gradient(135deg, #fad7a1 10%, #e96d71 100%);
 }
 

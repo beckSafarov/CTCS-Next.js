@@ -8,7 +8,7 @@ const ProjectInfo = ({ projectName, description, texts, img, styles }) => {
         <a href={img} target='_blank' className='center_align'>
           <img className={styles.project_photo} src={img} alt={description} />
         </a>
-        <p>{description}</p>
+        <p className={styles.caption}>{description}</p>
       </div>
       {texts.map((current, index) => {
         return <p key={index}>{current}</p>;

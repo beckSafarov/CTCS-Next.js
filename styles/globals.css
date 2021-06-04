@@ -293,41 +293,6 @@ h1 {
   color: var(--blue-color);
 }
 
-/* go to top */
-.go_to_top {
-  position: fixed;
-  color: #000;
-  bottom: 30px;
-  right: -50px;
-  z-index: 15;
-  transition: 0.3s;
-}
-
-.go_to_top a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.go_to_top i {
-  font-size: 40px;
-}
-
-.go_to_top.active {
-  right: 40px;
-}
-
-.go_to_top:hover {
-  color: var(--awesome-blue);
-}
-
-.something {
-  color: black;
-}
-
-.something.active {
-  color: green;
-}
-
 /* -- REGULAR NAVBAR -- */
 .navbar {
   position: fixed;
@@ -336,7 +301,7 @@ h1 {
   z-index: 20;
   height: fit-content;
   background-color: #fff;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--gentle-grey);
   font-size: 0.8rem;
   letter-spacing: 2px;
   padding: 5px 20px 0 0;
@@ -346,8 +311,24 @@ h1 {
   transition: top 0.4s;
 }
 
-.navbar_hidden {
-  top: -100px;
+.navbar_minimized {
+  border-bottom: 1px solid var(--gentle-grey);
+  opacity: 0.9;
+  transition: 0.5s;
+}
+
+.navbar_remain {
+  position: relative;
+}
+
+.logo_link_container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.logo_link_container a {
+  font-size: 2rem;
 }
 
 .navbar .menu_items ul {
@@ -367,7 +348,7 @@ h1 {
   font-size: 0.8rem;
 }
 .hvr_grey_bg {
-  border-radius: 10px;
+  border-radius: 0;
 }
 
 .hvr_grey_bg:hover {
@@ -375,12 +356,7 @@ h1 {
 }
 
 .active_navLink {
-  background-color: #ccc;
-  border-radius: 10px;
-}
-
-.active_navLink:hover {
-  background-color: #ccc;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 .logo a img {
@@ -565,6 +541,12 @@ footer .footer_social {
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
   /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+
+@media (max-width: 1068px) {
+  .active_navLink {
+    border-bottom: 2px solid var(--primary-color);
+  }
 }
 
 /* MOBILE RESPONSIVENESS */

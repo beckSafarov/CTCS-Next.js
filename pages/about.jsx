@@ -32,7 +32,7 @@ const about = ({ about, projects }) => {
                   />
                 </div>
               </a>
-              <p>
+              <p className={styles.caption}>
                 Icons made by{' '}
                 <a href='https://www.freepik.com' title='Freepik'>
                   Freepik

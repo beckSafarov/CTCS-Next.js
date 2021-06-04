@@ -46,10 +46,10 @@ export default function Home({ members, services }) {
             </button>
           </div>
           <div className={styles.video + ' animate__animated animate__zoomIn'}>
-            <Iframe
+            {/* <Iframe
               url='https://www.youtube.com/embed/klXzntaBZ3c'
               className={styles.iframe}
-            ></Iframe>
+            ></Iframe> */}
           </div>
         </section>
         <section id='team_members' className={styles.team_members_section}>
