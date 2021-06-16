@@ -216,6 +216,14 @@ h1 {
   letter-spacing: 0;
 }
 
+.bordered {
+  border: 1px solid #ccc;
+}
+
+.bordered.rounded {
+  border-radius: 10px;
+}
+
 /* -- TOGGLE & NAV MENU */
 
 .toggle {

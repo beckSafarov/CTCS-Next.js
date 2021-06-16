@@ -3,6 +3,7 @@ import styles from '../styles/About.module.css';
 import Meta from '../components/globals/Meta';
 import Loader from '../components/globals/Loader';
 import { ROOT } from '../config';
+import Image from 'next/image';
 import fs from 'fs';
 
 const about = ({ about, projects }) => {
@@ -26,10 +27,18 @@ const about = ({ about, projects }) => {
             <div className={styles.centered_column}>
               <a href={`${ROOT}/img/ct.png`} target='_blank'>
                 <div className={styles.about_photo}>
-                  <img
+                  {/* <img
                     src={`${ROOT}/img/${about.image}`}
                     alt='Computational Thinking Program Aspects'
-                  />
+                  /> */}
+                  <div className='bordered rounded'>
+                    <Image
+                      src={`${ROOT}/img/${about.image}`}
+                      alt='Computational Thinking Program Aspects'
+                      width={750}
+                      height={600}
+                    ></Image>
+                  </div>
                 </div>
               </a>
               <p className={styles.caption}>

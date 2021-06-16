@@ -1,5 +1,6 @@
 import React from 'react';
 import { ROOT } from '../config';
+import Image from 'next/image';
 
 const ActivityRow = ({
   activityName,
@@ -20,6 +21,13 @@ const ActivityRow = ({
             src={ROOT + '/img/' + image}
             alt={caption}
           />
+          {/* <Image
+            onClick={modalImgClicked}
+            src={ROOT + '/img/' + image}
+            alt={caption}
+            width={500}
+            height={350}
+          ></Image> */}
         </div>
         <div className={styles.activity_body}>
           <h2 className={styles.headline_over_body}>{activityName}</h2>
