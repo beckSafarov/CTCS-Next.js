@@ -3,19 +3,14 @@ import Link from 'next/link';
 import { ROOT, ABOUT, ACTIVITIES, CONTACT } from '../../config';
 import { useRouter } from 'next/router';
 
-const Navbar = ({ minimalNav }) => {
+const Navbar = ({ minimalNav, navClass }) => {
   const loc = useRouter();
   const [memberPage, setMemberPage] = useState(false);
   const [highlight, setHighlight] = useState(null);
 
   useEffect(() => {
     setHighlight(getLocation());
-
-    if (loc.pathname.includes('members')) {
-      console.log('You are in member page');
-      setMemberPage(true);
-    }
-
+    setMemberPage(loc.pathname.includes('members'));
     return () => setMemberPage(false);
   }, [loc.pathname]);
 
@@ -23,17 +18,23 @@ const Navbar = ({ minimalNav }) => {
     return loc.pathname === '/' ? 'home' : loc.pathname.replace('/', '');
   };
 
+  // className={
+  //   minimalNav && !memberPage
+  //     ? 'navbar navbar_minimized'
+  //     : memberPage
+  //     ? 'navbar navbar_remain'
+  //     : 'navbar'
+  // }
   return (
-    <div
-      className={
-        minimalNav && !memberPage
-          ? 'navbar navbar_minimized'
-          : memberPage
-          ? 'navbar navbar_remain'
-          : 'navbar'
-      }
-    >
-      {minimalNav && !memberPage ? (
+    <div className={`navbar ${navClass}`}>
+      {/* <div className='logo animate__animated animate__fadeIn'>
+        <Link href={ROOT}>
+          <a href={ROOT}>
+            <img src={`${ROOT}/img/logo_main.png`} alt='Logo' />
+          </a>
+        </Link>
+      </div> */}
+      {minimalNav ? (
         <div className='logo_link_container'>
           <Link href={ROOT}>
             <a href={ROOT}>CTCS USM</a>

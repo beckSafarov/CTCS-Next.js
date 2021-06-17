@@ -39,7 +39,7 @@ export default function Home({ members, services }) {
             <p className='animate__animated animate__fadeInLeft'>
               Lorem ipsum dolor sit amet consectetur adipisicing.
             </p>
-            <button className='animate__animated animate__fadeInUp hvr_float_shadow'>
+            <button className='animate__animated animate__fadeInUp hvr-glow'>
               <Link href={ROOT + '/about'}>
                 <a href={ROOT + '/about'}>Learn More</a>
               </Link>

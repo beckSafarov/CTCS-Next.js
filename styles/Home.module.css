@@ -91,7 +91,8 @@
   height: 110vh;
   padding-bottom: 100px;
   /* background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
+  background-color: whitesmoke;
   background-blend-mode: lighten;
   background-blend-mode: soft-light, screen;
 }
