@@ -33,7 +33,7 @@ const about = ({ about, projects }) => {
                   /> */}
                   <div className='bordered rounded'>
                     <Image
-                      src={`${ROOT}/img/${about.image}`}
+                      src={`/img/${about.image}`}
                       alt='Computational Thinking Program Aspects'
                       width={750}
                       height={600}
@@ -66,7 +66,7 @@ const about = ({ about, projects }) => {
                   projectName={project.name}
                   description={project.imgCaption}
                   texts={project.paragraphs}
-                  img={`${`${ROOT}`}/img/${project.image}`}
+                  img={`/img/${project.image}`}
                   styles={styles}
                 />
               );
